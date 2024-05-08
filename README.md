@@ -1,16 +1,12 @@
 # chatgpt_clone
 
-A new Flutter project.
+So for using this project here are steps to follow:
 
-## Getting Started
+1. Register one app on firebase and store their plist file in androida dn ios folder.
+2. login on anthropic and create api key and add that api key in one .env file in root folder with name of file as ".env"
+3. Then jsut run the app it will work fine.
 
-This project is a starting point for a Flutter application.
+Here is my demo video
+https://www.loom.com/share/ca42e8a9bd6e49be81a09eaa53da3e00?sid=9914f74e-3634-42f2-b464-d7d3e7166306
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hope you like it thanks. and sorry for delay :(
