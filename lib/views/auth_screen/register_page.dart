@@ -1,7 +1,9 @@
 import 'package:chatgpt_clone/components/my_buttons.dart';
 import 'package:chatgpt_clone/components/my_textfield.dart';
+import 'package:chatgpt_clone/providers/auth_provider.dart';
 import 'package:chatgpt_clone/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function() onTap;
@@ -26,6 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
   //register function
   void register(BuildContext context) {
     final auth = AuthService();
+
     //check if password and confirm password are the same
     if (_passwordController.text == _confirmPasswordController.text) {
       try {
@@ -76,6 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -159,8 +163,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
                           MyButton(
                             text: "Register",
-                            onTap: () => register(context),
-                            isLoading: _isLoading,
+                            onTap: () => authProvider.register(
+                              context,
+                              _nameController.text,
+                              _emailController.text,
+                              _passwordController.text,
+                              _confirmPasswordController.text,
+                            ),
+                            isLoading: authProvider.isLoading,
                           ),
 
                           const SizedBox(height: 25),
