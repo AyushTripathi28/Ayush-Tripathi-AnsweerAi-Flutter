@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:chatgpt_clone/models/chat_message.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class ChatService {
@@ -108,8 +109,8 @@ class ChatService {
     try {
       final uri = Uri.parse('https://api.anthropic.com/v1/messages');
       final headers = {
-        'x-api-key':
-            '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', // Replace with your actual API key
+        'x-api-key': dotenv
+            .env['ANTHROPIC_API_KEY']!, // Replace with your actual API key
         'anthropic-version': '2023-06-01',
         'content-type': 'application/json'
       };
